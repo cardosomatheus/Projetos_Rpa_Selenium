@@ -1,4 +1,4 @@
-﻿from selenium import webdriver
+from selenium import webdriver
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
@@ -115,3 +115,12 @@ print('projeto finalizado com sucesso')
 """
 quando eu voltar da auto escola, vou pegar os links que estão dando erro, vou colocar em um lista diferente e fazer o download.
 posso fazer tbm a contagem daquele que estão dando erros e colocar while e um pyautogui.press ['enter']"""
+
+
+
+
+
+
+
+
+                    ]
