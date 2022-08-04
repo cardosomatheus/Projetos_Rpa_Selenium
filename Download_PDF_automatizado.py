@@ -8,7 +8,7 @@ import pyautogui
 import os
 
 """
-Esse script tem como objetivo capturar todas as urls do site que contem um pdf e baixar os arquivos.
+    Esse script tem como objetivo capturar todas as urls do site que contem um pdf e baixar os arquivos.
 Para os 3 Tipos de links existe uma forma de baixar o arquivo.
 (1) - Ao iniciar ná URl, basta apenas encontrar o ID= dowload e baixar o arquivo.
 (2) - Encontrar o Elemento Link_text= 'descargar' e clicar, voce será direcionado para o pdf e executar o mesmo processo 
@@ -27,7 +27,6 @@ links_lista_removidos = ['https://www.minjus.gob.pe/tribunal-de-transparencia-y-
                          'https://www.minjus.gob.pe/ttaip-peventos-recientes/',
                          'https://www.minjus.gob.pe/ttaip-material-informativo/']
 pasta_download = r'C:/Users/mathe/Downloads'
-download_final = r'C:\Users\mathe\download_final'
 
 
 def links_site(elementoweb_classe, elementoweb_tagname):
@@ -55,9 +54,9 @@ def click_download(elementoweb_id):
     localizador = (By.ID, elementoweb_id)
     wdw.until(presence_of_element_located(localizador))
     fox.find_element(*localizador).click()
-    sleep(4)
+    sleep(3)
     pyautogui.press(['enter'])
-    sleep(4)
+    sleep(2)
 
 
 def descargar_download(elementoweb_linktext):
@@ -83,7 +82,7 @@ alerta = Alert(fox)
 # Encontrando todas as urls  e colocando da lista "lista_links_download"
 links_site(elementoweb_classe='post-content', elementoweb_tagname='a')
 
-arq_pasta_final = os.listdir(download_final)
+
 for link in lista_links_download:
     arq_pasta_download = os.listdir(pasta_download)
     fox.get(link)
@@ -112,6 +111,3 @@ for link in lista_links_download:
 
 
 print('projeto finalizado com sucesso')
-"""
-quando eu voltar da auto escola, vou pegar os links que estão dando erro, vou colocar em um lista diferente e fazer o download.
-posso fazer tbm a contagem daquele que estão dando erros e colocar while e um pyautogui.press ['enter']"""
