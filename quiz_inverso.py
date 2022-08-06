@@ -2,10 +2,15 @@ from selenium.webdriver import Firefox
 from time import sleep
 from pprint import pprint
 
+# --------------- Abertura do navegador e URl ---------------
+browser = Firefox()
+browser.get('https://selenium.dunossauro.live/aula_04.html')
 
-def net_links(browser, elemento):
+# --------------- Função usadas no código ---------------
+
+
+def net_links(elemento):
     """
-    :param browser: navegador escolhido
     :param elemento: webelement ex: [aside, main, body, ul, li]
     :return: O dicionário RESULTADO completo
     AnCORAS: Uma lista que armazena as ancoras
@@ -13,7 +18,6 @@ def net_links(browser, elemento):
     resultado = {}
     webelement = browser.find_element_by_tag_name(elemento)  # colocando o ASIDE em uma varivel e
     sleep(1)
-
     ancoras = webelement.find_elements_by_tag_name('a')  # Colocando as ancoras 'a' em uma lista
     sleep(2)
 
@@ -22,13 +26,9 @@ def net_links(browser, elemento):
     return resultado
 
 
-# Abertura do navegador e URl
-browser = Firefox()
-browser.get('https://selenium.dunossauro.live/aula_04.html')
+exercicios = net_links('main')
+aulas = net_links('aside')
 
-exercicios = net_links(browser, 'main')
-aulas = net_links(browser, 'aside')
-
-
+# --------------- Visualização das aulas e entrando no exercicio 3 ---------------
 pprint(aulas)
-browser.get(exercicios['Exercício 3'])  # Entrando no exercicio 3
+browser.get(exercicios['Exercício 3'])

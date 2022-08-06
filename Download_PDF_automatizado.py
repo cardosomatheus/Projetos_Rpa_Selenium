@@ -28,6 +28,8 @@ links_lista_removidos = ['https://www.minjus.gob.pe/tribunal-de-transparencia-y-
                          'https://www.minjus.gob.pe/ttaip-material-informativo/']
 pasta_download = r'C:/Users/mathe/Downloads'
 
+# --------------- Funções usadas no código ---------------
+
 
 def links_site(elementoweb_classe, elementoweb_tagname):
     """
@@ -70,7 +72,7 @@ def descargar_download(elementoweb_linktext):
     click_download('download')
 
 
-#   Inicialização do Projeto
+# --------------- Inicialização do Projeto  ---------------
 options = webdriver.FirefoxOptions()
 options.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf")
 options.set_preference("browser.download.dir", pasta_download)
@@ -83,6 +85,7 @@ alerta = Alert(fox)
 links_site(elementoweb_classe='post-content', elementoweb_tagname='a')
 
 
+# --------------- Realização do download dos PDFs  ---------------
 for link in lista_links_download:
     arq_pasta_download = os.listdir(pasta_download)
     fox.get(link)

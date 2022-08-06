@@ -1,8 +1,7 @@
 from selenium.webdriver import Firefox
 from urllib.parse import urlparse
 
-firefox = Firefox()
-firefox.get('http://selenium.dunossauro.live/exercicio_04.html')
+# --------------- Função usadas no código ---------------
 
 
 def preencher_formulario(nome, email, senha, telefone):
@@ -16,18 +15,28 @@ def preencher_formulario(nome, email, senha, telefone):
     firefox.find_element_by_id('btn').click()
 
 
+# --------------- Inicialização do Projeto  ---------------
+firefox = Firefox()
+firefox.get('http://selenium.dunossauro.live/exercicio_04.html')
 firefox.implicitly_wait(3)
 formulario_estruturado = {'nome': 'matheus',
                           'email': 'dtsquad@gmail.com',
                           'senha': 'q1w2e3',
                           'telefone': '912345678'}
-preencher_formulario(**formulario_estruturado)
 
+# --------------- Preenchimento do formulário  ---------------
+preencher_formulario(**formulario_estruturado)
 url_query = urlparse(firefox.current_url).query.split('&')
 
-tratamento_resultado = firefox.find_element_by_tag_name('textarea').text.replace('@', '%40'). replace(':', '=').replace('\'', '')
-resultado_tratado = tratamento_resultado.replace(' ', '').replace('{', '').replace('}', '').split(',')
+# --------------- Tratamento  formulário  ---------------
+tratamento_result = firefox.find_element_by_tag_name('textarea').text.replace('@', '%40')\
+    . \
+    replace(':', '=').replace('\'', '')
 
+resultado_tratado = tratamento_result.replace(' ', '').replace('{', '').replace('}', '')\
+    .split(',')
+
+# --------------- Visualização e validação do resultado final ---------------
 print(f'url {url_query[0:4]}')
 print(f'resultado {resultado_tratado}')
 

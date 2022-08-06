@@ -13,19 +13,14 @@ def espera_elemento(by, elemento, webdriver):
     return False
 
 
-url = 'http://selenium.dunossauro.live/exercicio_09.html'
 fox = Firefox()
-print('Abertura da pagina')
+#   ----------Abertura da pagina ----------
 wdw = WebDriverWait(fox, 10)
-fox.get(url)
+fox.get('http://selenium.dunossauro.live/exercicio_09.html')
 
-print('busca da class Sselenium')
+#   ---------- Busca da classe  ----------
 busca_elemento = partial(espera_elemento, By.CLASS_NAME, 'selenium')
-
-print('temporizador para a busca ser concluida')
 wdw.until(busca_elemento)
-
-print('Deu certo, Receba!!!')
 fox.find_element(By.CLASS_NAME, 'selenium')
 
 
