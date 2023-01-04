@@ -8,7 +8,6 @@ browser.get('https://selenium.dunossauro.live/aula_04.html')
 
 # --------------- Função usadas no código ---------------
 
-
 def net_links(elemento):
     """
     :param elemento: webelement ex: [aside, main, body, ul, li]

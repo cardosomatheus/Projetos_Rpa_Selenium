@@ -9,7 +9,7 @@ def inicializar_url(url_site):
     :return: ira entrar na Url de cada seleção e iniciar a função informacoes_paises()
     """
     firefox.get(url_site)
-
+    
 
 def informacoes_paises(div_xpath, parametro):
     """

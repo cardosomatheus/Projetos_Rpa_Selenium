@@ -4,8 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
 # --------------- Função usadas no código ---------------
-
-
 def espera_elemento(by, elemento):
     """ Procura o elemento desejado"""
     f'Tentando encontrar BY: {by},  Element: {elemento}'
