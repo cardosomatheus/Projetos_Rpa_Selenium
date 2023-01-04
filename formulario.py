@@ -3,7 +3,6 @@ from urllib.parse import urlparse
 
 # --------------- Função usadas no código ---------------
 
-
 def preencher_formulario(nome, email, senha, telefone):
     """
     Preenchimento automatico do formulário
@@ -13,7 +12,6 @@ def preencher_formulario(nome, email, senha, telefone):
     firefox.find_element_by_name('senha').send_keys(senha)
     firefox.find_element_by_name('telefone').send_keys(telefone)
     firefox.find_element_by_id('btn').click()
-
 
 # --------------- Inicialização do Projeto  ---------------
 firefox = Firefox()
